@@ -39,11 +39,8 @@ RUN R -e "\
   });\
   cat('spatialt-ucell OK: Seurat', as.character(packageVersion('Seurat')),\
       ' UCell', as.character(packageVersion('UCell')), '\n');\
-  if (exists('AddModuleScore_UCell', mode = 'function')) {\
-    cat(' AddModuleScore_UCell: available\n');\
-  } else {\
-    cat(' AddModuleScore_UCell: not available (will use UCell::ScoreSignatures)\n');\
-  }\
+  cat(' UCell::AddModuleScore_UCell:', 'AddModuleScore_UCell' %in% getNamespaceExports('UCell'), '\n');\
+  cat(' UCell::ScoreSignatures_UCell:', 'ScoreSignatures_UCell' %in% getNamespaceExports('UCell'), '\n');\
 "
 
 WORKDIR /work
